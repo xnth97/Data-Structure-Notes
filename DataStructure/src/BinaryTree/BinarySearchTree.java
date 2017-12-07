@@ -78,52 +78,52 @@ public class BinarySearchTree implements BSTInterface {
             if (current == null) {
                 return;
             }
+        }
 
-            // case 2: a leaf (no children)
-            if (current.left == null && current.right == null) {
-                if (current == root) {
-                    root = null;
-                } else if (isLeftChild) {
-                    parent.left = null;
-                } else {
-                    parent.right = null;
-                }
+        // case 2: a leaf (no children)
+        if (current.left == null && current.right == null) {
+            if (current == root) {
+                root = null;
+            } else if (isLeftChild) {
+                parent.left = null;
+            } else {
+                parent.right = null;
             }
+        }
 
-            // case 3-1: one child, left only
-            else if (current.right == null) {
-                if (current == root) {
-                    root = current.left;
-                } else if (isLeftChild) {
-                    parent.left = current.left;
-                } else {
-                    parent.right = current.left;
-                }
+        // case 3-1: one child, left only
+        else if (current.right == null) {
+            if (current == root) {
+                root = current.left;
+            } else if (isLeftChild) {
+                parent.left = current.left;
+            } else {
+                parent.right = current.left;
             }
+        }
 
-            // case 3-2: one child, right only
-            else if (current.left == null) {
-                if (current == root) {
-                    root = current.right;
-                } else if (isLeftChild) {
-                    parent.left = current.right;
-                } else {
-                    parent.right = current.right;
-                }
+        // case 3-2: one child, right only
+        else if (current.left == null) {
+            if (current == root) {
+                root = current.right;
+            } else if (isLeftChild) {
+                parent.left = current.right;
+            } else {
+                parent.right = current.right;
             }
+        }
 
-            // case 4: two children
-            else {
-                Node successor = getSuccessor(current);
-                if (current == root) {
-                    root = successor;
-                } else if (isLeftChild) {
-                    parent.left = successor;
-                } else {
-                    parent.right = successor;
-                }
-                successor.left = current.left;
+        // case 4: two children
+        else {
+            Node successor = getSuccessor(current);
+            if (current == root) {
+                root = successor;
+            } else if (isLeftChild) {
+                parent.left = successor;
+            } else {
+                parent.right = successor;
             }
+            successor.left = current.left;
         }
     }
 
