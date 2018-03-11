@@ -20,7 +20,7 @@ class BinaryTree {
             if current!.key < key {
                 current = current?.right
             } else {
-                current = current?.right
+                current = current?.left
             }
             if current == nil {
                 return false

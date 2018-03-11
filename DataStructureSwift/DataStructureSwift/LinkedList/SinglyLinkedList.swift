@@ -36,7 +36,7 @@ class SinglyLinkedList<T: Equatable> {
     
     func insertAfter(_ key: T, item: T) {
         var tmp = head
-        while tmp != nil && tmp!.data != item {
+        while tmp != nil && tmp!.data != key {
             tmp = tmp!.next
         }
         if let tmp = tmp {
@@ -47,7 +47,7 @@ class SinglyLinkedList<T: Equatable> {
     
     func insertBefore(_ key: T, item: T) {
         if let head = head {
-            if head.data == item {
+            if head.data == key {
                 addFirst(item)
                 return
             }
