@@ -109,7 +109,7 @@ class BinaryTree:
         return successor
 
 
-    def traverse(self):
+    def dfs_traverse(self):
         self.__in_order(self.root)
         
 
@@ -118,6 +118,34 @@ class BinaryTree:
             self.__in_order(to_visit.left)
             print(to_visit.key)
             self.__in_order(to_visit.right)
+
+    def bfs_traverse(self):
+        if not self.root:
+            return
+        queue = [self.root]
+        for node in queue:
+            print(node.key)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+
+
+    def iterative_traverse(self):
+        if not self.root:
+            return
+        stack = []
+        current = self.root
+        while current or stack:
+            # add all through the left-most node of the tree
+            while current:
+                stack.append(current)
+                current = current.left
+            current = stack.pop()
+            print(current.key)
+            # if the removed node still has non-empty right subtree,
+            # add all through the right node's left most child
+            current = current.right
 
 
     # inner class
