@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type DataItem struct {
 	key int
 }
@@ -11,6 +13,17 @@ type HashTable struct {
 
 func MakeHashTable(capacity int) HashTable {
 	return HashTable{make([]*DataItem, capacity), &DataItem{-1}}
+}
+
+func (table *HashTable) print() {
+	for _, item := range table.hashArray {
+		if item != nil {
+			fmt.Printf("%d, ", item.key)
+		} else {
+			fmt.Printf("nil, ")
+		}
+	}
+	fmt.Print("\n")
 }
 
 func (table *HashTable) hash(key int) int {

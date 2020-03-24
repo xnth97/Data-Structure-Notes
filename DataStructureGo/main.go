@@ -43,13 +43,34 @@ func testHashTable() {
 	t.insert(4)
 	fmt.Println(t.search(3))
 	t.insert(8)
-	fmt.Println(t)
+	t.print()
 	t.delete(3)
 	fmt.Println(t.search(3))
+}
+
+func testBST() {
+	t := MakeBinarySearchTree()
+	t.insert(10, 10)
+	t.insert(5, 5)
+	t.insert(11, 11)
+	t.insert(7, 7)
+	t.insert(6, 6)
+	fmt.Println(DFSTraverse(&t))
+	fmt.Println(BFSTraverse(&t))
+}
+
+func testSorting() {
+	d := []int{6, 4, 1, 3, 8, 5}
+	// BubbleSort(&d)
+	// SelectionSort(&d)
+	InsertionSort(&d)
+	fmt.Println(d)
 }
 
 func main() {
 	// testLinkedList()
 	// testQueue()
-	testHashTable()
+	// testHashTable()
+	// testBST()
+	testSorting()
 }
