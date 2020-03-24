@@ -63,7 +63,9 @@ func testSorting() {
 	d := []int{6, 4, 1, 3, 8, 5}
 	// BubbleSort(&d)
 	// SelectionSort(&d)
-	InsertionSort(&d)
+	// InsertionSort(&d)
+	// d = MergeSort(d)
+	d = QuickSort(d)
 	fmt.Println(d)
 }
 

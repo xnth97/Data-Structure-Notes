@@ -41,3 +41,66 @@ func InsertionSort(data *[]int) {
 		}
 	}
 }
+
+func MergeSort(data []int) []int {
+	if len(data) <= 1 {
+		return data
+	}
+	mid := int(len(data) / 2)
+	// call merge sort on left part
+	left := data[:mid]
+	left = MergeSort(left)
+	// call merge sort on right part
+	right := data[mid:]
+	right = MergeSort(right)
+	// merge two parts
+	return merge(left, right)
+}
+
+func merge(a []int, b []int) []int {
+	if a == nil || len(a) == 0 {
+		return b
+	}
+	if b == nil || len(b) == 0 {
+		return a
+	}
+	merged := make([]int, 0)
+	ptr1 := 0
+	ptr2 := 0
+	for ptr1 < len(a) && ptr2 < len(b) {
+		if a[ptr1] < b[ptr2] {
+			merged = append(merged, a[ptr1])
+			ptr1++
+		} else {
+			merged = append(merged, b[ptr2])
+			ptr2++
+		}
+	}
+	if ptr1 < len(a) {
+		merged = append(merged, a[ptr1:]...)
+	}
+	if ptr2 < len(b) {
+		merged = append(merged, b[ptr2:]...)
+	}
+	return merged
+}
+
+func QuickSort(data []int) []int {
+	if len(data) <= 1 {
+		return data
+	}
+	// initialize arrays
+	left := make([]int, 0)
+	right := make([]int, 0)
+	// pick pivot value
+	pivot := data[0]
+	array := data[1:]
+	for _, val := range array {
+		if val < pivot {
+			left = append(left, val)
+		} else {
+			right = append(right, val)
+		}
+	}
+	return append(append(QuickSort(left), pivot), QuickSort(right)...)
+}
