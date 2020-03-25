@@ -57,6 +57,9 @@ func testBST() {
 	t.insert(6, 6)
 	fmt.Println(DFSTraverse(&t))
 	fmt.Println(BFSTraverse(&t))
+	fmt.Println(IterativeInorderTraverse(&t))
+	fmt.Println(IterativePreorderTraverse(&t))
+	fmt.Println(IterativePostorderTraverse(&t))
 }
 
 func testSorting() {
@@ -69,10 +72,27 @@ func testSorting() {
 	fmt.Println(d)
 }
 
+func testHeap() {
+	h := MakeMaxHeap()
+	h.insert(5)
+	h.insert(3)
+	h.insert(50)
+	h.insert(38)
+	h.insert(42)
+	h.insert(98)
+	h.print()
+	fmt.Println(h.removeMax())
+	fmt.Println(h.removeMax())
+	fmt.Println(h.removeMax())
+	fmt.Println(h.removeMax())
+	h.print()
+}
+
 func main() {
 	// testLinkedList()
 	// testQueue()
 	// testHashTable()
 	// testBST()
-	testSorting()
+	// testSorting()
+	testHeap()
 }

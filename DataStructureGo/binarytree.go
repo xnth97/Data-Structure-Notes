@@ -177,3 +177,74 @@ func BFSTraverse(tree *BinarySearchTree) []int {
 	}
 	return ret
 }
+
+// Iterative inorder
+func IterativeInorderTraverse(tree *BinarySearchTree) []int {
+	if tree.root == nil {
+		return nil
+	}
+	stack := make([]*TreeNode, 0)
+	ret := make([]int, 0)
+	curr := tree.root
+	for curr != nil || len(stack) > 0 {
+		// add all through the left-most node of the tree
+		for curr != nil {
+			stack = append(stack, curr)
+			curr = curr.left
+		}
+		curr = stack[0]
+		stack = stack[1:]
+		ret = append(ret, curr.key)
+		// if the removed node still has non-empty right subtree,
+		// add all through the right node's left most child
+		curr = curr.right
+	}
+	return ret
+}
+
+// Iterative preorder
+func IterativePreorderTraverse(tree *BinarySearchTree) []int {
+	if tree.root == nil {
+		return nil
+	}
+	stack := []*TreeNode{tree.root}
+	ret := make([]int, 0)
+	var curr *TreeNode
+	for len(stack) > 0 {
+		curr = stack[0]
+		stack = stack[1:]
+		ret = append(ret, curr.key)
+		if curr.right != nil {
+			stack = append(stack, curr.right)
+		}
+		if curr.left != nil {
+			stack = append(stack, curr.left)
+		}
+	}
+	return ret
+}
+
+// Iterative postorder
+func IterativePostorderTraverse(tree *BinarySearchTree) []int {
+	if tree.root == nil {
+		return nil
+	}
+	stack := []*TreeNode{tree.root}
+	ret := make([]int, 0)
+	var curr *TreeNode
+	for len(stack) > 0 {
+		curr = stack[0]
+		stack = stack[1:]
+		ret = append(ret, curr.key)
+		if curr.left != nil {
+			stack = append(stack, curr.left)
+		}
+		if curr.right != nil {
+			stack = append(stack, curr.right)
+		}
+	}
+	for i, j := 0, len(ret)-1; i < j; i, j = i+1, j-1 {
+		ret[i], ret[j] = ret[j], ret[i]
+	}
+	return ret
+}
