@@ -5,9 +5,7 @@ type Stack struct {
 }
 
 func MakeStack() Stack {
-	return Stack{
-		array: make([]interface{}, 0),
-	}
+	return Stack{make([]interface{}, 0)}
 }
 
 func (s *Stack) isEmpty() bool {

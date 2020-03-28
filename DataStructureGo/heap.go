@@ -85,3 +85,15 @@ func (heap *MaxHeap) perculateDown(index int) {
 	// put top key into proper location to restore the heap
 	heap.array[index] = top
 }
+
+func heapSort(data []int) []int {
+	heap := MakeMaxHeap()
+	for _, val := range data {
+		heap.insert(val)
+	}
+	ret := make([]int, 0)
+	for i := 0; i < len(data); i++ {
+		ret = append(ret, heap.removeMax())
+	}
+	return ret
+}

@@ -86,13 +86,23 @@ func testHeap() {
 	fmt.Println(h.removeMax())
 	fmt.Println(h.removeMax())
 	h.print()
+
+	a := []int{6, 2, 4, 9, 7, 3}
+	fmt.Println(heapSort(a))
+}
+
+func testBinarySearch() {
+	a := []int{1, 3, 5, 7, 9, 13}
+	fmt.Println(binarySearch(a, 8))
 }
 
 func main() {
+	// testStack()
 	// testLinkedList()
 	// testQueue()
 	// testHashTable()
 	// testBST()
 	// testSorting()
 	testHeap()
+	// testBinarySearch()
 }
