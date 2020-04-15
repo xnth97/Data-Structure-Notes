@@ -8,7 +8,7 @@ func MakeStack() Stack {
 	return Stack{make([]interface{}, 0)}
 }
 
-func (s *Stack) isEmpty() bool {
+func (s Stack) isEmpty() bool {
 	if s.array == nil {
 		return true
 	}
@@ -29,7 +29,7 @@ func (s *Stack) pop() interface{} {
 	return ret
 }
 
-func (s *Stack) peek() interface{} {
+func (s Stack) peek() interface{} {
 	length := len(s.array)
 	if length == 0 {
 		return nil

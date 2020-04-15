@@ -18,7 +18,7 @@ func MakeMaxHeap() MaxHeap {
 	return MaxHeap{make([]*HeapNode, 0)}
 }
 
-func (heap *MaxHeap) print() {
+func (heap MaxHeap) print() {
 	for _, val := range heap.array {
 		fmt.Printf("%d, ", val.key)
 	}

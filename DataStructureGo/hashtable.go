@@ -15,7 +15,7 @@ func MakeHashTable(capacity int) HashTable {
 	return HashTable{make([]*DataItem, capacity), &DataItem{-1}}
 }
 
-func (table *HashTable) print() {
+func (table HashTable) print() {
 	for _, item := range table.hashArray {
 		if item != nil {
 			fmt.Printf("%d, ", item.key)
@@ -26,11 +26,11 @@ func (table *HashTable) print() {
 	fmt.Print("\n")
 }
 
-func (table *HashTable) hash(key int) int {
+func (table HashTable) hash(key int) int {
 	return key % len(table.hashArray)
 }
 
-func (table *HashTable) search(key int) bool {
+func (table HashTable) search(key int) bool {
 	hashVal := table.hash(key)
 	for table.hashArray[hashVal] != nil {
 		if table.hashArray[hashVal].key == key {

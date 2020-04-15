@@ -15,7 +15,7 @@ func MakeLinkedList() LinkedList {
 	return LinkedList{nil}
 }
 
-func (list *LinkedList) print() {
+func (list LinkedList) print() {
 	tmp := list.head
 	for tmp != nil {
 		fmt.Printf("%d, ", tmp.value)

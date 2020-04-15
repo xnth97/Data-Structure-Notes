@@ -8,7 +8,7 @@ func MakeQueue() Queue {
 	return Queue{make([]interface{}, 0)}
 }
 
-func (q *Queue) isEmpty() bool {
+func (q Queue) isEmpty() bool {
 	if q.array == nil {
 		return true
 	}
@@ -31,7 +31,7 @@ func (q *Queue) dequeue() interface{} {
 	return val
 }
 
-func (q *Queue) peekFront() interface{} {
+func (q Queue) peekFront() interface{} {
 	if q.isEmpty() {
 		return nil
 	}
