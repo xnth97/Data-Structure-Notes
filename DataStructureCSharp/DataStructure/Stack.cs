@@ -33,7 +33,7 @@
     }
 
     public override string ToString() {
-        return $"Stack: [" + String.Join(", ", list) + "]";
+        return $"Stack: [{String.Join(", ", list)}]";
     }
 
 }
