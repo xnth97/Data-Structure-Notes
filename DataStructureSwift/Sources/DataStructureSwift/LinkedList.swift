@@ -25,14 +25,14 @@ class LinkedList<T: Equatable> {
         self.head = nil
     }
 
-    func addFirst(item: T) {
+    func addFirst(_ item: T) {
         let newHead = Node(data: item, next: head)
         head = newHead
     }
 
-    func addLast(item: T) {
+    func addLast(_ item: T) {
         guard let head else {
-            addFirst(item: item)
+            addFirst(item)
             return
         }
 
@@ -57,7 +57,7 @@ class LinkedList<T: Equatable> {
         }
 
         if head.data == key {
-            addFirst(item: item)
+            addFirst(item)
             return
         }
 
@@ -74,7 +74,7 @@ class LinkedList<T: Equatable> {
         }
     }
 
-    func remove(item: T) {
+    func remove(_ item: T) {
         guard let head else {
             return
         }
@@ -102,7 +102,7 @@ class LinkedList<T: Equatable> {
 extension LinkedList: CustomStringConvertible {
 
     var description: String {
-        var desc = "["
+        var desc = "LinkedList: ["
         var tmp = head
         while tmp != nil {
             desc.append("\(tmp!.data), ")
