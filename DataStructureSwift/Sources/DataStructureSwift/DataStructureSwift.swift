@@ -3,6 +3,9 @@ public struct DataStructureSwift {
     public private(set) var text = "Hello, World!"
 
     public static func main() {
+        let sortedArr = [1, 3, 5, 7, 9]
+        print(binarySearch(data: sortedArr, key: 5))
+
         let linkedList = LinkedList<Int>()
         linkedList.addFirst(5)
         linkedList.addLast(8)
