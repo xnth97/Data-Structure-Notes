@@ -55,6 +55,7 @@ public struct DataStructureSwift {
         bst.delete(key: 3)
         bst.delete(key: 8)
         print(bst)
+        print("BFS: \(bst.bfsTraverse())")
         print(bst.inorderTraverse())
         print(bst.preorderTraverse())
         print(bst.postorderTraverse())

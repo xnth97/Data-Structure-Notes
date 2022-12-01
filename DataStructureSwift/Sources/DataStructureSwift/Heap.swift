@@ -100,7 +100,9 @@ func heapSort(data: [Int]) -> [Int] {
     }
     var ret: [Int] = []
     for _ in 0 ..< data.count {
-        ret.insert(heap.removeMax()!.key, at: 0)
+        if let max = heap.removeMax() {
+            ret.insert(max.key, at: 0)
+        }
     }
     return ret
 }

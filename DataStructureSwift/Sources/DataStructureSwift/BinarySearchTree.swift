@@ -207,6 +207,27 @@ class BinarySearchTree<K: Comparable, V> {
         traverse(node: node.right, res: &res)
     }
 
+    func bfsTraverse() -> [Node<K, V>] {
+        guard let root else {
+            return []
+        }
+        var queue = [root]
+        var ret: [Node<K, V>] = []
+        var index = 0
+        while index < queue.count {
+            let node = queue[index]
+            ret.append(node)
+            if let left = node.left {
+                queue.append(left)
+            }
+            if let right = node.right {
+                queue.append(right)
+            }
+            index += 1
+        }
+        return ret
+    }
+
     func inorderTraverse() -> [Node<K, V>] {
         guard let root else {
             return []
@@ -224,6 +245,8 @@ class BinarySearchTree<K: Comparable, V> {
             if current != nil {
                 res.append(current!)
             }
+            // if the removed node still has non-empty right subtree,
+            // add all through the right node's left most child
             current = current?.right
         }
         return res
