@@ -70,6 +70,10 @@ public struct DataStructureSwift {
         for _ in 0 ..< 5 {
             print(heap.removeMax()!)
         }
-        print(heapSort(data: [5,2,7,1,3,8,6,4]))
+        print(heapSort(data: [5,2,7,1,9,3,8,6,4]))
+
+        var arr = [5,2,7,1,9,3,8,6,4]
+        quickSort(data: &arr)
+        print(arr)
     }
 }

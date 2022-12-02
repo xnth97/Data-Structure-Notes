@@ -28,6 +28,7 @@ class HashTable {
             if hashArray[hashVal]?.key == key {
                 return true
             }
+            hashVal += 1
             // 每次都取模防止溢出
             hashVal %= hashArray.count
         }
