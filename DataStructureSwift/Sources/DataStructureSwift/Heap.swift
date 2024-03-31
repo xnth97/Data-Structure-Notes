@@ -9,9 +9,9 @@ import Foundation
 
 class MaxHeap<T: Comparable> {
 
-    class Node<T> {
-        let key: T
-        init(key: T) {
+    class Node<NodeT> {
+        let key: NodeT
+        init(key: NodeT) {
             self.key = key
         }
     }

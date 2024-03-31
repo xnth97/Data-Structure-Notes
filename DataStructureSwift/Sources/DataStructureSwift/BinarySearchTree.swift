@@ -9,25 +9,25 @@ import Foundation
 
 class BinarySearchTree<K: Comparable, V> {
 
-    class Node<K: Comparable, V>: Equatable {
+    class Node<NodeK: Comparable, NodeV>: Equatable {
 
-        let key: K
-        let value: V
-        var left: Node<K, V>?
-        var right: Node<K, V>?
+        let key: NodeK
+        let value: NodeV
+        var left: Node<NodeK, NodeV>?
+        var right: Node<NodeK, NodeV>?
 
-        init(key: K,
-             value: V,
-             left: Node<K, V>? = nil,
-             right: Node<K, V>? = nil) {
+        init(key: NodeK,
+             value: NodeV,
+             left: Node<NodeK, NodeV>? = nil,
+             right: Node<NodeK, NodeV>? = nil) {
             self.key = key
             self.value = value
             self.left = left
             self.right = right
         }
 
-        static func == (lhs: Node<K, V>,
-                        rhs: Node<K, V>) -> Bool {
+        static func == (lhs: Node<NodeK, NodeV>,
+                        rhs: Node<NodeK, NodeV>) -> Bool {
             return lhs.key == rhs.key
                 && lhs.left == rhs.left
                 && lhs.right == rhs.right
@@ -212,11 +212,9 @@ class BinarySearchTree<K: Comparable, V> {
             return []
         }
         var queue = [root]
-        var ret: [Node<K, V>] = []
         var index = 0
         while index < queue.count {
             let node = queue[index]
-            ret.append(node)
             if let left = node.left {
                 queue.append(left)
             }
@@ -225,7 +223,7 @@ class BinarySearchTree<K: Comparable, V> {
             }
             index += 1
         }
-        return ret
+        return queue
     }
 
     func inorderTraverse() -> [Node<K, V>] {

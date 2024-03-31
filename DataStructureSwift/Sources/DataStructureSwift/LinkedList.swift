@@ -9,11 +9,11 @@ import Foundation
 
 class LinkedList<T: Equatable> {
 
-    class Node<T> {
-        var data: T
-        var next: Node<T>?
+    class Node<NodeT> {
+        var data: NodeT
+        var next: Node<NodeT>?
 
-        init(data: T, next: Node<T>? = nil) {
+        init(data: NodeT, next: Node<NodeT>? = nil) {
             self.data = data
             self.next = next
         }
